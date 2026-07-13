@@ -114,6 +114,30 @@
   }
   .hero a:hover{ text-decoration-color: var(--pine); }
 
+  .contact-line{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap: 10px;
+    padding-top: 4px;
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .contact-line a{
+    color: var(--ink);
+    text-decoration:none;
+  }
+  .contact-line a:hover{ color: var(--pine); }
+  .contact-line .email{
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .pipe-sep{
+    color: var(--line);
+  }
+  
   .status{
     display:inline-flex;
     align-items:center;
@@ -256,9 +280,9 @@
 
       <div class="contact-line">
         <a href="https://www.linkedin.com/in/annie-y-wang-" target="_blank" rel="noopener">LinkedIn</a>
-        <span class="dot-sep"></span>
+        <span class="pipe-sep">|</span>
         <a href="Annie_Wang_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-        <span class="dot-sep"></span>
+        <span class="pipe-sep">|</span>
         <a class="email" href="mailto:annieyihanwang@gmail.com">annieyihanwang@gmail.com</a>
       </div>
     </div>
