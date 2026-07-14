@@ -64,12 +64,19 @@
   }
 
   .hero{
-    padding: 20px 0 44px;
+    padding: 60px 0;
     display:flex;
-    gap: 40px;
-    align-items:flex-start;
+    flex-direction: column;
+    align-items:center;
+    text-align: center;
+    gap: 28px;
   }
-  .hero-text{ flex: 1; min-width: 260px; }
+  .hero-text{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 640px;
+  }
   .hero h1{
     font-family:'Fraunces', serif;
     font-weight: 500;
@@ -101,6 +108,7 @@
     display:flex;
     flex-wrap:wrap;
     align-items:center;
+    justify-content: center;
     gap: 10px;
     padding-top: 4px;
     font-family:'Fraunces', serif;
@@ -117,8 +125,8 @@
   .pipe-sep{ color: var(--muted); }
 
   .sticker{
-    width: 190px;
-    height: 190px;
+    width: 240px;
+    height: 240px;
     flex-shrink: 0;
     border-radius: 50%;
     border: 2px solid var(--ink);
@@ -142,80 +150,12 @@
     color: var(--ink);
     margin: 0 0 18px;
   }
-  
+
   .hint{
     font-size: 13px;
     color: var(--muted);
     font-style: italic;
     margin: -6px 0 18px;
-  }
-
-  .photo-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-    margin-top: 26px;
-  }
-  .photo-placeholder{
-    width: 100%;
-    height: 100%;
-    background: var(--paper);
-    color: var(--muted);
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .photo-placeholder img{
-    width:100%; height:100%; object-fit: cover; display:block;
-  }
-
-  .ec-group{ margin-bottom: 32px; text-align: center; }
-  .ec-group:last-child{ margin-bottom: 0; }
-  .ec-label{
-    font-family:'Fraunces', serif;
-    font-weight: 500;
-    font-size: 18px;
-    margin: 0 0 12px;
-    text-align: center;
-  }
-  .ec-caption{
-    margin: 12px 0 0;
-    font-size: 14px;
-    color: var(--muted);
-    text-align: center;
-  }
-
-  /* ---------- flip cards ---------- */
-  .flip-card{ perspective: 1000px; cursor: pointer; }
-  .flip-inner{
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    transition: transform .6s cubic-bezier(.4,.2,.2,1);
-    transform-style: preserve-3d;
-  }
-  .flip-card.flipped .flip-inner{ transform: rotateY(180deg); }
-  .flip-front, .flip-back{
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    border-radius: 6px;
-    overflow: hidden;
-    border: 2px solid var(--ink);
-  }
-  .flip-back{
-    transform: rotateY(180deg);
-    background: var(--paper);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding: 14px;
-    text-align:center;
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--ink);
   }
 
   footer{ padding: 40px 0 60px; border-top: 1px solid var(--line); }
@@ -240,9 +180,7 @@
   .email:hover{ border-color: var(--pine); color: var(--pine); }
 
   @media (max-width: 560px){
-    .hero{ flex-direction: column-reverse; }
-    .sticker{ width: 110px; height: 110px; }
-    .photo-grid{ grid-template-columns: 1fr; }
+    .sticker{ width: 160px; height: 160px; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -260,7 +198,7 @@
     <nav>
       <a href="index.html" class="active">About</a>
       <a href="projects.html">Projects</a>
-      <a href="hobbies.html">Hobbies</a>
+      <a href="extracurriculars.html">Hobbies</a>
     </nav>
   </header>
 
@@ -275,7 +213,7 @@
         I'm a sophomore at Texas A&M University (Gig 'em!!) majoring in Electrical Engineering with minors in Mathematics and Meteorology. On campus, I'm a member of the Electrical Power Subsystem team for the <a href="https://aggiesat.tamu.edu/adam/" target="_blank" rel="noopener">ADAM project</a> in AggieSat Laboratory, and work as an undergraduate machine learning researcher in the <a href="https://shen-lab.github.io/research.html" target="_blank" rel="noopener">Shen Lab</a>. Outside of engineering, I organize socials for <a href="https://www.sasetamu.org/about" target="_blank" rel="noopener">SASE</a>, and am an active member of Club Tennis, IEEE, and SWE.
       </p>
       <p>
-        In my free time, you'll catch me playing tennis, karaokeing with friends, trying out new dessert shops, and going on boba runs!
+        In my free time, you'll catch me playing tennis, karaokeing with friends, hanging out with my dog, Leo, and going on boba runs!
       </p>
 
       <div class="contact-line">
@@ -286,13 +224,7 @@
         <a class="email" href="mailto:annieyihanwang@gmail.com">annieyihanwang@gmail.com</a>
       </div>
     </div>
-
-    <div class="sticker">
-      <img src="ADBCDD53-7396-4545-B43C-5169A6DBF4BE.jpeg" alt="Annie Wang">
-    </div>
   </div>
-</div>
-
 
 </div>
 
