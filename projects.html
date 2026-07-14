@@ -41,22 +41,11 @@
     padding: 36px 0 28px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    justify-content:flex-start;
     gap: 20px;
     flex-wrap: wrap;
   }
 
-  .wordmark{
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 18px;
-    letter-spacing: 0.02em;
-    text-decoration:none;
-    color: var(--ink);
-    display:flex;
-    align-items:center;
-    gap:9px;
-  }
   nav{ display:flex; gap: 22px; }
   nav a{
     font-family:'IBM Plex Mono', monospace;
@@ -74,78 +63,61 @@
     border-color: var(--pine);
   }
 
-  .page-head{ padding: 20px 0 34px; }
-  .page-head h1{
-    font-family:'Fraunces', serif;
-    font-weight: 500;
-    font-size: clamp(28px, 4vw, 36px);
-    line-height: 1.3;
-    margin: 0 0 8px;
-  }
-  .page-head p{ color: var(--muted); margin: 0; }
-
-  section{ padding: 10px 0 34px; }
-
-  .project{
+  .projects-list{
+    padding: 20px 0 60px;
     display:flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 0;
-    border-top: 1px solid var(--line);
-    text-decoration:none;
-    color: var(--ink);
+    flex-direction: column;
+    gap: 56px;
   }
+
+  .project-row{
+    display:flex;
+    align-items:center;
+    gap: 40px;
+  }
+  .project-row.reverse{
+    flex-direction: row-reverse;
+  }
+
+  .project-photo{
+    width: 220px;
+    height: 220px;
+    flex-shrink: 0;
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--paper);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: var(--muted);
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+  }
+  .project-photo img{
+    width:100%; height:100%; object-fit: cover; display:block;
+  }
+
+  .project-caption{ flex: 1; min-width: 240px; }
   .project-title{
     font-family:'Fraunces', serif;
-    font-weight:500;
-    font-size: 19px;
-    margin: 0 0 5px;
-  }
-  .project-desc{ color: var(--muted); font-size: 15px; margin:0 0 8px; max-width: 520px; }
-  .project-tags{ display:flex; flex-wrap:wrap; gap:6px; }
-  .project-tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.03em;
-    color: var(--muted);
-    background: var(--paper);
-    border: 1px solid var(--line);
-    padding: 3px 9px;
-    border-radius: 100px;
-  }
-  .project-arrow{
-    font-family:'IBM Plex Mono', monospace;
-    color: var(--muted);
-    transition: transform .2s ease, color .2s ease;
-    flex-shrink:0;
-    padding-top: 4px;
-  }
-  .project:hover .project-arrow{ transform: translateX(4px); color: var(--pine); }
-  .project:hover .project-title{ color: var(--pine); }
-
-  footer{ padding: 40px 0 60px; border-top: 1px solid var(--line); }
-  .footer-links{
-    display:flex;
-    flex-wrap:wrap;
-    gap: 6px 4px;
-    font-family:'Fraunces', serif;
     font-weight: 600;
-    font-size: 20px;
-    margin: 0 0 22px;
+    font-size: 22px;
+    margin: 0 0 8px;
   }
-  .footer-links a{ color: var(--ink); text-decoration:none; position:relative; }
-  .footer-links a:hover{ color: var(--pine); }
-  .footer-links span.sep{ color: var(--line); margin: 0 2px; }
-
-  footer p{ margin: 0 0 6px; color: var(--muted); font-size:14px;}
-  .email{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 14px;
+  .project-desc{
     color: var(--ink);
-    text-decoration:none;
-    border-bottom: 1px solid var(--line);
+    margin: 0;
+    font-size: 16px;
   }
-  .email:hover{ border-color: var(--pine); color: var(--pine); }
+
+  @media (max-width: 640px){
+    .project-row, .project-row.reverse{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .project-photo{ width: 100%; height: auto; aspect-ratio: 4/3; }
+  }
 
   @media (prefers-reduced-motion: reduce){
     * { transition: none !important; scroll-behavior: auto !important; }
@@ -165,47 +137,33 @@
     </nav>
   </header>
 
-  <div class="page-head">
-    <h1>Projects</h1>
-    <p>Some things I've built and worked on.</p>
-  </div>
+  <div class="projects-list">
 
-  <section>
-    <a class="project" href="#">
-      <div>
+    <div class="project-row">
+      <div class="project-photo">photo</div>
+      <div class="project-caption">
         <p class="project-title">Project One</p>
-        <p class="project-desc">One or two lines on what it does and what problem it solves.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">Hardware</span>
-        </div>
+        <p class="project-desc">Describe what this project is, what you built, and what tools you used.</p>
       </div>
-      <span class="project-arrow">→</span>
-    </a>
+    </div>
 
-    <a class="project" href="#">
-      <div>
+    <div class="project-row reverse">
+      <div class="project-photo">photo</div>
+      <div class="project-caption">
         <p class="project-title">Project Two</p>
-        <p class="project-desc">One or two lines on what it does and what problem it solves.</p>
-        <div class="project-tags">
-          <span class="project-tag">C++</span>
-          <span class="project-tag">Embedded Systems</span>
-        </div>
+        <p class="project-desc">Describe what this project is, what you built, and what tools you used.</p>
       </div>
-      <span class="project-arrow">→</span>
-    </a>
+    </div>
 
-    <a class="project" href="#">
-      <div>
+    <div class="project-row">
+      <div class="project-photo">photo</div>
+      <div class="project-caption">
         <p class="project-title">Project Three</p>
-        <p class="project-desc">One or two lines on what it does and what problem it solves.</p>
-        <div class="project-tags">
-          <span class="project-tag">Research</span>
-        </div>
+        <p class="project-desc">Describe what this project is, what you built, and what tools you used.</p>
       </div>
-      <span class="project-arrow">→</span>
-    </a>
-  </section>
+    </div>
+
+  </div>
 
 </div>
 
