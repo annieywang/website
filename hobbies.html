@@ -113,15 +113,9 @@
   .collage-exact{
     display:grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 140px);
+    grid-auto-rows: 130px;
     gap: 4px;
     margin-top: 30px;
-    grid-template-areas:
-      "p1 p2 p2 p3 p4"
-      "p5 p6 p7 p7 p8"
-      "p5 p6 p7 p7 p8"
-      "p9 p9 p10 p10 p11"
-      "p9 p9 p10 p10 p12";
   }
   .collage-exact .collage-item{
     position: relative;
@@ -131,30 +125,28 @@
   .collage-exact .collage-item img{
     width:100%; height:100%; object-fit: cover; display:block;
   }
-  .collage-exact .item-1{ grid-area: p1; }
-  .collage-exact .item-2{ grid-area: p2; }
-  .collage-exact .item-3{ grid-area: p3; }
-  .collage-exact .item-4{ grid-area: p4; }
-  .collage-exact .item-5{ grid-area: p5; }
-  .collage-exact .item-6{ grid-area: p6; }
-  .collage-exact .item-7{ grid-area: p7; }
-  .collage-exact .item-8{ grid-area: p8; }
-  .collage-exact .item-9{ grid-area: p9; }
-  .collage-exact .item-10{ grid-area: p10; }
-  .collage-exact .item-11{ grid-area: p11; }
-  .collage-exact .item-12{ grid-area: p12; }
+
+  .collage-exact .item-1{ grid-column: 1 / 2; grid-row: 1 / 2; }
+  .collage-exact .item-2{ grid-column: 2 / 4; grid-row: 1 / 2; }
+  .collage-exact .item-3{ grid-column: 4 / 5; grid-row: 1 / 2; }
+  .collage-exact .item-4{ grid-column: 5 / 6; grid-row: 1 / 3; }
+  .collage-exact .item-5{ grid-column: 1 / 2; grid-row: 2 / 4; }
+  .collage-exact .item-6{ grid-column: 2 / 3; grid-row: 2 / 4; }
+  .collage-exact .item-7{ grid-column: 3 / 5; grid-row: 2 / 4; }
+  .collage-exact .item-8{ grid-column: 5 / 6; grid-row: 3 / 4; }
+  .collage-exact .item-9{ grid-column: 1 / 3; grid-row: 4 / 6; }
+  .collage-exact .item-10{ grid-column: 3 / 5; grid-row: 4 / 6; }
+  .collage-exact .item-11{ grid-column: 5 / 6; grid-row: 4 / 5; }
+  .collage-exact .item-12{ grid-column: 5 / 6; grid-row: 5 / 6; }
 
   @media (max-width: 640px){
     .collage-exact{
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(6, 140px);
-      grid-template-areas:
-        "p1 p2"
-        "p3 p4"
-        "p5 p6"
-        "p7 p8"
-        "p9 p10"
-        "p11 p12";
+      grid-auto-rows: 130px;
+    }
+    .collage-exact .collage-item{
+      grid-column: auto !important;
+      grid-row: auto !important;
     }
   }
 
