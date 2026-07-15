@@ -78,28 +78,7 @@
     margin: -6px 0 18px;
   }
 
-  .photo-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-    margin-top: 26px;
-  }
-  .photo-placeholder{
-    width: 100%;
-    height: 100%;
-    background: var(--paper);
-    color: var(--muted);
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .photo-placeholder img{
-    width:100%; height:100%; object-fit: cover; display:block;
-  }
-
-  .ec-group{ margin-bottom: 32px; text-align: center; }
+  .ec-group{ margin-bottom: 48px; text-align: center; }
   .ec-group:last-child{ margin-bottom: 0; }
   .ec-label{
     font-family:'Fraunces', serif;
@@ -109,36 +88,61 @@
     text-align: center;
   }
   .ec-caption{
-    margin: 12px 0 0;
+    margin: 20px 0 0;
     font-size: 14px;
     color: var(--muted);
     text-align: center;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .photo-hover{
-    position: relative;
-    aspect-ratio: 4 / 3;
-    border-radius: 6px;
-    overflow: hidden;
-    border: 2px solid var(--ink);
-  }
-  .photo-hover .caption-overlay{
-    position: absolute;
-    inset: 0;
-    background: rgba(27,26,23,0.75);
-    color: #fff;
+  .collage{
     display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding: 14px;
-    font-size: 13px;
-    line-height: 1.5;
-    opacity: 0;
-    transition: opacity .25s ease;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 30px;
+    padding: 10px 0;
   }
-  .photo-hover:hover .caption-overlay{
-    opacity: 1;
+  .collage-item{
+    position: relative;
+    width: 200px;
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 6px solid #fff;
+    box-shadow: 0 8px 18px rgba(27,26,23,0.25);
+    transition: transform .25s ease, z-index 0s;
+  }
+  .collage-item:hover{
+    transform: scale(1.06) rotate(0deg) !important;
+    z-index: 5;
+  }
+  .collage-item:nth-child(6n+1){ transform: rotate(-6deg); }
+  .collage-item:nth-child(6n+2){ transform: rotate(4deg); }
+  .collage-item:nth-child(6n+3){ transform: rotate(-3deg); }
+  .collage-item:nth-child(6n+4){ transform: rotate(5deg); }
+  .collage-item:nth-child(6n+5){ transform: rotate(-4deg); }
+  .collage-item:nth-child(6n+6){ transform: rotate(3deg); }
+
+  .collage-item img{
+    width:100%; height:100%; object-fit: cover; display:block;
+  }
+  .collage-item .caption-overlay{
+    position: absolute; inset: 0;
+    background: rgba(27,26,23,0.75);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding: 12px;
+    font-size: 12px; line-height: 1.4;
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .collage-item:hover .caption-overlay{ opacity: 1; }
+
+  @media (max-width: 560px){
+    .collage-item{ width: 150px; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -155,8 +159,8 @@
   <header>
     <nav>
       <a href="index.html">About</a>
-      <a href="hobbies.html" class="active">Hobbies</a>
       <a href="projects.html">Projects</a>
+      <a href="hobbies.html" class="active">Hobbies</a>
     </nav>
   </header>
 
@@ -165,39 +169,46 @@
     <p class="hint">*hover on photo for more!</p>
 
     <div class="ec-group">
+      <h3 class="ec-label">SASE</h3>
+      <div class="collage">
+        <div class="collage-item"><img src="sase-1.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="sase-2.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="sase-3.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="sase-4.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="sase-5.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="sase-6.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="sase-7.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="sase-8.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+      </div>
+      <p class="ec-caption">Describe these SASE photos here</p>
+    </div>
+
+    <div class="ec-group">
       <h3 class="ec-label">Tennis</h3>
-      <div class="photo-grid">
-        <div class="photo-hover">
-          <div class="photo-placeholder"><img src="35AB836D-BCFD-4AE4-8760-4E51BD4B325F_1_201_a.jpeg" alt="Tennis"></div>
-          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
-        </div>
-        <div class="photo-hover">
-          <div class="photo-placeholder"><img src="34E52816-A2CA-4E27-A2DB-96085AAA7EA5_1_105_c.jpeg" alt="Tennis"></div>
-          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
-        </div>
-        <div class="photo-hover">
-          <div class="photo-placeholder"><img src="73285C63-27BD-420D-906B-B74B0D24F90F_1_201_a.jpeg" alt="Tennis"></div>
-          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
-        </div>
+      <div class="collage">
+        <div class="collage-item"><img src="tennis-1.jpeg" alt="Tennis"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="tennis-2.jpeg" alt="Tennis"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="tennis-3.jpeg" alt="Tennis"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="tennis-4.jpeg" alt="Tennis"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="tennis-5.jpeg" alt="Tennis"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="tennis-6.jpeg" alt="Tennis"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="tennis-7.jpeg" alt="Tennis"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="tennis-8.jpeg" alt="Tennis"><div class="caption-overlay"><p>Write your note here</p></div></div>
       </div>
       <p class="ec-caption">Through years of playing competitive tennis in both team and individual settings, I've developed the discipline and mental resilience that continue to shape how I approach challenges, collaboration, and personal growth today.</p>
     </div>
 
     <div class="ec-group">
       <h3 class="ec-label">Photos</h3>
-      <div class="photo-grid">
-        <div class="photo-hover">
-          <div class="photo-placeholder"><img src="4D3D0DE7-C991-4AFF-9091-43433BC8DDDC_1_201_a.jpeg" alt="Photography"></div>
-          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
-        </div>
-        <div class="photo-hover">
-          <div class="photo-placeholder"><img src="E8F2B354-BC53-42D7-8CE0-8EF9DF4AF6C6_1_102_a.jpeg" alt="Photography"></div>
-          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
-        </div>
-        <div class="photo-hover">
-          <div class="photo-placeholder"><img src="F539F9B4-A7A3-4C08-B4DA-8D20010652FA_1_102_a.jpeg" alt="Photography"></div>
-          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
-        </div>
+      <div class="collage">
+        <div class="collage-item"><img src="photog-1.jpeg" alt="Photography"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="photog-2.jpeg" alt="Photography"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="photog-3.jpeg" alt="Photography"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="photog-4.jpeg" alt="Photography"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="photog-5.jpeg" alt="Photography"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="photog-6.jpeg" alt="Photography"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="photog-7.jpeg" alt="Photography"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item"><img src="photog-8.jpeg" alt="Photography"><div class="caption-overlay"><p>Write your note here</p></div></div>
       </div>
       <p class="ec-caption">Describe these photography shots here</p>
     </div>
