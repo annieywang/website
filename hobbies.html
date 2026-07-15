@@ -115,34 +115,30 @@
     text-align: center;
   }
 
-  .flip-card{ perspective: 1000px; cursor: pointer; }
-  .flip-inner{
+  .photo-hover{
     position: relative;
-    width: 100%;
     aspect-ratio: 4 / 3;
-    transition: transform .6s cubic-bezier(.4,.2,.2,1);
-    transform-style: preserve-3d;
-  }
-  .flip-card.flipped .flip-inner{ transform: rotateY(180deg); }
-  .flip-front, .flip-back{
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
     border-radius: 6px;
     overflow: hidden;
     border: 2px solid var(--ink);
   }
-  .flip-back{
-    transform: rotateY(180deg);
-    background: var(--paper);
+  .photo-hover .caption-overlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(27,26,23,0.75);
+    color: #fff;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding: 14px;
     text-align:center;
+    padding: 14px;
     font-size: 13px;
     line-height: 1.5;
-    color: var(--ink);
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+  .photo-hover:hover .caption-overlay{
+    opacity: 1;
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -166,40 +162,22 @@
 
   <section id="hobbies">
     <h2>Extracurriculars</h2>
-    <p class="hint">*click on photo for more!</p>
+    <p class="hint">*hover on photo for more!</p>
 
     <div class="ec-group">
       <h3 class="ec-label">SASE</h3>
       <div class="photo-grid">
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="photo-placeholder"><img src="8F91A548-23FB-439A-8C79-DC0F943491F7_1_201_a.jpeg" alt="SASE"></div>
-            </div>
-            <div class="flip-back">
-              <p>Write your note about this photo here</p>
-            </div>
-          </div>
+        <div class="photo-hover">
+          <div class="photo-placeholder"><img src="8F91A548-23FB-439A-8C79-DC0F943491F7_1_201_a.jpeg" alt="SASE"></div>
+          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="photo-placeholder"><img src="906B8165-9F42-444C-B876-F4F640993731_1_105_c.jpeg" alt="SASE"></div>
-            </div>
-            <div class="flip-back">
-              <p>Write your note about this photo here</p>
-            </div>
-          </div>
+        <div class="photo-hover">
+          <div class="photo-placeholder"><img src="906B8165-9F42-444C-B876-F4F640993731_1_105_c.jpeg" alt="SASE"></div>
+          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="photo-placeholder"><img src="AB3D0729-B78F-44B8-947B-19C8A08F388C_1_201_a.jpeg" alt="SASE"></div>
-            </div>
-            <div class="flip-back">
-              <p>Write your note about this photo here</p>
-            </div>
-          </div>
+        <div class="photo-hover">
+          <div class="photo-placeholder"><img src="AB3D0729-B78F-44B8-947B-19C8A08F388C_1_201_a.jpeg" alt="SASE"></div>
+          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
         </div>
       </div>
       <p class="ec-caption">Describe these SASE photos here</p>
@@ -208,35 +186,17 @@
     <div class="ec-group">
       <h3 class="ec-label">Tennis</h3>
       <div class="photo-grid">
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="photo-placeholder"><img src="35AB836D-BCFD-4AE4-8760-4E51BD4B325F_1_201_a.jpeg" alt="Tennis"></div>
-            </div>
-            <div class="flip-back">
-              <p>Write your note about this photo here</p>
-            </div>
-          </div>
+        <div class="photo-hover">
+          <div class="photo-placeholder"><img src="35AB836D-BCFD-4AE4-8760-4E51BD4B325F_1_201_a.jpeg" alt="Tennis"></div>
+          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="photo-placeholder"><img src="34E52816-A2CA-4E27-A2DB-96085AAA7EA5_1_105_c.jpeg" alt="Tennis"></div>
-            </div>
-            <div class="flip-back">
-              <p>Write your note about this photo here</p>
-            </div>
-          </div>
+        <div class="photo-hover">
+          <div class="photo-placeholder"><img src="34E52816-A2CA-4E27-A2DB-96085AAA7EA5_1_105_c.jpeg" alt="Tennis"></div>
+          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="photo-placeholder"><img src="73285C63-27BD-420D-906B-B74B0D24F90F_1_201_a.jpeg" alt="Tennis"></div>
-            </div>
-            <div class="flip-back">
-              <p>Write your note about this photo here</p>
-            </div>
-          </div>
+        <div class="photo-hover">
+          <div class="photo-placeholder"><img src="73285C63-27BD-420D-906B-B74B0D24F90F_1_201_a.jpeg" alt="Tennis"></div>
+          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
         </div>
       </div>
       <p class="ec-caption">Through years of playing competitive tennis in both team and individual settings, I've developed the discipline and mental resilience that continue to shape how I approach challenges, collaboration, and personal growth today.</p>
@@ -245,35 +205,17 @@
     <div class="ec-group">
       <h3 class="ec-label">Photos</h3>
       <div class="photo-grid">
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="photo-placeholder"><img src="4D3D0DE7-C991-4AFF-9091-43433BC8DDDC_1_201_a.jpeg" alt="Photography"></div>
-            </div>
-            <div class="flip-back">
-              <p>Write your note about this photo here</p>
-            </div>
-          </div>
+        <div class="photo-hover">
+          <div class="photo-placeholder"><img src="4D3D0DE7-C991-4AFF-9091-43433BC8DDDC_1_201_a.jpeg" alt="Photography"></div>
+          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="photo-placeholder"><img src="E8F2B354-BC53-42D7-8CE0-8EF9DF4AF6C6_1_102_a.jpeg" alt="Photography"></div>
-            </div>
-            <div class="flip-back">
-              <p>Write your note about this photo here</p>
-            </div>
-          </div>
+        <div class="photo-hover">
+          <div class="photo-placeholder"><img src="E8F2B354-BC53-42D7-8CE0-8EF9DF4AF6C6_1_102_a.jpeg" alt="Photography"></div>
+          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <div class="photo-placeholder"><img src="F539F9B4-A7A3-4C08-B4DA-8D20010652FA_1_102_a.jpeg" alt="Photography"></div>
-            </div>
-            <div class="flip-back">
-              <p>Write your note about this photo here</p>
-            </div>
-          </div>
+        <div class="photo-hover">
+          <div class="photo-placeholder"><img src="F539F9B4-A7A3-4C08-B4DA-8D20010652FA_1_102_a.jpeg" alt="Photography"></div>
+          <div class="caption-overlay"><p>Write your note about this photo here</p></div>
         </div>
       </div>
       <p class="ec-caption">Describe these photography shots here</p>
