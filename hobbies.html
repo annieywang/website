@@ -97,23 +97,7 @@
     margin-right: auto;
   }
 
-  .collage{
-    columns: 3;
-    column-gap: 4px;
-    margin-top: 30px;
-  }
-  .collage-item{
-    break-inside: avoid;
-    margin-bottom: 4px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-  }
-  .collage-item img{
-    width: 100%;
-    display: block;
-  }
-  .collage-item .caption-overlay{
+  .caption-overlay{
     position: absolute; inset: 0;
     background: rgba(27,26,23,0.75);
     color:#fff;
@@ -124,6 +108,73 @@
     transition: opacity .2s ease;
   }
   .collage-item:hover .caption-overlay{ opacity: 1; }
+
+  /* ---------- exact fixed layout (SASE) ---------- */
+  .collage-exact{
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 140px);
+    gap: 4px;
+    margin-top: 30px;
+    grid-template-areas:
+      "p1 p2 p2 p3 p4"
+      "p5 p6 p7 p7 p8"
+      "p5 p6 p7 p7 p8"
+      "p9 p9 p10 p10 p11"
+      "p9 p9 p10 p10 p12";
+  }
+  .collage-exact .collage-item{
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  .collage-exact .collage-item img{
+    width:100%; height:100%; object-fit: cover; display:block;
+  }
+  .collage-exact .item-1{ grid-area: p1; }
+  .collage-exact .item-2{ grid-area: p2; }
+  .collage-exact .item-3{ grid-area: p3; }
+  .collage-exact .item-4{ grid-area: p4; }
+  .collage-exact .item-5{ grid-area: p5; }
+  .collage-exact .item-6{ grid-area: p6; }
+  .collage-exact .item-7{ grid-area: p7; }
+  .collage-exact .item-8{ grid-area: p8; }
+  .collage-exact .item-9{ grid-area: p9; }
+  .collage-exact .item-10{ grid-area: p10; }
+  .collage-exact .item-11{ grid-area: p11; }
+  .collage-exact .item-12{ grid-area: p12; }
+
+  @media (max-width: 640px){
+    .collage-exact{
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 140px);
+      grid-template-areas:
+        "p1 p2"
+        "p3 p4"
+        "p5 p6"
+        "p7 p8"
+        "p9 p10"
+        "p11 p12";
+    }
+  }
+
+  /* ---------- flexible column layout (Tennis, Photos) ---------- */
+  .collage{
+    columns: 3;
+    column-gap: 4px;
+    margin-top: 30px;
+  }
+  .collage .collage-item{
+    break-inside: avoid;
+    margin-bottom: 4px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  .collage .collage-item img{
+    width: 100%;
+    display: block;
+  }
 
   @media (max-width: 640px){
     .collage{ columns: 2; }
@@ -154,15 +205,19 @@
 
     <div class="ec-group">
       <h3 class="ec-label">SASE</h3>
-      <div class="collage">
-        <div class="collage-item"><img src="sase-1.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
-        <div class="collage-item"><img src="sase-2.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
-        <div class="collage-item"><img src="sase-3.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
-        <div class="collage-item"><img src="sase-4.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
-        <div class="collage-item"><img src="sase-5.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
-        <div class="collage-item"><img src="sase-6.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
-        <div class="collage-item"><img src="sase-7.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
-        <div class="collage-item"><img src="sase-8.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+      <div class="collage-exact">
+        <div class="collage-item item-1"><img src="sase-1.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item item-2"><img src="sase-2.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item item-3"><img src="sase-3.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item item-4"><img src="sase-4.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item item-5"><img src="sase-5.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item item-6"><img src="sase-6.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item item-7"><img src="sase-7.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item item-8"><img src="sase-8.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item item-9"><img src="sase-9.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item item-10"><img src="sase-10.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item item-11"><img src="sase-11.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
+        <div class="collage-item item-12"><img src="sase-12.jpeg" alt="SASE"><div class="caption-overlay"><p>Write your note here</p></div></div>
       </div>
       <p class="ec-caption">Describe these SASE photos here</p>
     </div>
