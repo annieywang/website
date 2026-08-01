@@ -100,7 +100,7 @@
     color: var(--muted);
     font-family:'IBM Plex Mono', monospace;
     font-size: 12px;
-    border: 4px solid var(--ink);
+    border: 2px solid var(--ink);
   }
   .project-photo img{
     width:100%; height:100%; object-fit: cover; display:block;
@@ -122,6 +122,15 @@
     color: var(--pine);
     text-decoration: underline;
     text-underline-offset: 3px;
+  }
+
+  .project-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-left: 10px;
+    vertical-align: middle;
   }
 
   .github-icon-link{
@@ -173,7 +182,7 @@
     <div class="project-row">
       <div class="project-photo"><img src="projects/2C123318-3C53-434E-AE3C-0237760FBEA6.png" alt="LED Sequencer PCB"></div>
       <div class="project-caption">
-        <p class="project-title">LED Sequencer PCB</p>
+        <p class="project-title">LED Sequencer PCB<span class="project-date">Jun 2026</span></p>
         <p class="project-desc">A circuit that lights up 10 LEDs one after another in a chase pattern, with a knob to speed it up or slow it down. Built with a 555 timer and CD4017 counter, simulated in LTspice, and laid out as a two-layer PCB in Altium.</p>
       </div>
     </div>
@@ -181,7 +190,7 @@
     <div class="project-row reverse">
       <div class="project-photo"><img src="projects/BE277058-5FD2-4CAD-A200-A66485933705.jpeg" alt="Robodog"></div>
       <div class="project-caption">
-        <p class="project-title">Robodog</p>
+        <p class="project-title">Robodog<span class="project-date">Jan 2026</span></p>
         <p class="project-desc">A little robot that follows you around, keeping a steady distance using ultrasonic sensing and PID-controlled motors. Built with an Arduino Uno, C/C++, and wheel assemblies designed in Onshape.</p>
       </div>
     </div>
@@ -189,7 +198,7 @@
     <div class="project-row">
       <div class="project-photo"><img src="projects/1DE41D27-485F-47CD-A57B-069DB4F8A403_1_201_a.jpeg" alt="Reveille: After Hours"></div>
       <div class="project-caption">
-        <p class="project-title">Reveille: After Hours</p>
+        <p class="project-title">Reveille: After Hours<span class="project-date">Oct 2025</span></p>
         <p class="project-desc">A browser-based escape room game where our school mascot, Reveille, gets locked in the library and has to solve her way through a series of stages to get out. Built with JavaScript, HTML/CSS, and Figma.</p>
         <a class="github-icon-link" href="https://github.com/laurenkvu/Reveille-After-Hours" target="_blank" rel="noopener">
           <img src="projects/0E49CEDB-D053-4C62-80A7-A0FAD4E6AE7F.jpeg" alt="View on GitHub">
